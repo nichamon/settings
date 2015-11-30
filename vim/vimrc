@@ -1,0 +1,155 @@
+" ~/.vimrc
+"
+
+" filetype plugin indent on
+filetype plugin on
+set ai
+set formatoptions+=ro
+
+" execute pathogen#infect()
+
+set hlsearch
+set tags+=/usr/include/tags
+set tags+=tags;/
+
+" Remove the included files from complete list
+" for performance improvement. Most keywords are in tags file anyway.
+" set complete-=i
+"set showtabline=2
+set laststatus=2
+set noexpandtab
+
+autocmd BufEnter * :syntax sync fromstart
+
+command -nargs=0 UI :call UpdateIndex()
+
+set makeprg=/home/narate/scripts/build_project.sh
+command -nargs=* MK :make <args>
+" map <C-B> :MK<CR>
+
+let g:load_doxygen_syntax=1
+" let g:clang_complete_macros=1
+" let g:clang_complete_auto=0
+" imap <C-@> <C-Space>
+" imap <C-Space> <C-x><C-o>
+
+function EliminateTrailingSpaces()
+	norm m'
+	%s/\s\+$//e
+	norm `'
+endfunction
+autocmd! BufWritePre * :call EliminateTrailingSpaces()
+
+" Color scheme
+set t_Co=16
+if has("gui_running")
+	colo desert
+else
+	colo default
+endif
+
+" Line wrap settings
+set textwidth=80
+set colorcolumn=+1
+hi ColorColumn ctermbg=7 guibg=7
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
+
+set number
+
+function Ntt()
+	execute "NERDTreeTabsToggle"
+endfunction
+command NTT :call Ntt()
+
+set nocompatible
+set completeopt=longest,menu,preview,menuone
+
+" For swig file type recognition.
+au BufRead,BufNewFile *.i set filetype=swig
+
+let g:SuperTabNoCompleteAfter = ['\w', '\s', '^', '.']
+
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+hi Search cterm=NONE ctermfg=0 ctermbg=11 guibg=Yellow guifg=Black
+hi Visual cterm=NONE ctermfg=0 ctermbg=6 guibg=Yellow guifg=Black
+
+set comments+=fb:\[\ \]
+set comments+=fb:\[*\]
+
+" Airline options
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline_powerline_fonts = 1
+let g:airline_theme="wombat"
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+
+" youcompleteme options
+let g:ycm_auto_trigger = 0
+highlight YcmErrorSection ctermfg=White ctermbg=Red
+highlight YcmWarningSection ctermfg=White ctermbg=Blue
+
+function ModifyGdYcm()
+	map gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endfunction
+
+autocmd FileType c :call ModifyGdYcm()
+
+function MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let fullname = bufname(buflist[winnr - 1])
+  let tmp = split(fullname, "/")
+  let lenn = len(tmp)
+  return tmp[lenn-1]
+endfunction
+
+function MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    " select the highlighting
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+
+    " set the tab page number (for mouse clicks)
+    let s .= '%' . (i + 1) . 'T'
+
+    " the label is made by MyTabLabel()
+    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+  endfor
+
+  " after the last tab fill with TabLineFill and reset tab page nr
+  let s .= '%#TabLineFill#%T'
+
+  " right-align the label to close the current tab page
+  if tabpagenr('$') > 1
+    let s .= '%=%#TabLine#%999Xclose'
+  endif
+
+  return s
+endfunction
+
+set tabline=%!MyTabLine()
+runtime ftplugin/man.vim
+nnoremap K :Man <cword><CR>
+
+" cscope key map
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>

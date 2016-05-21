@@ -6,3 +6,6 @@
 
 [alias]
 	ln = log --graph --pretty=short --abbrev-commit --decorate
+
+[push]
+	default = simple

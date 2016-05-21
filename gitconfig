@@ -1,0 +1,8 @@
+[core]
+	editor = vim
+
+[color]
+	ui = True
+
+[alias]
+	ln = log --graph --pretty=short --abbrev-commit --decorate

@@ -29,6 +29,8 @@ source $CFG_FILE
 expect DDNS_USERNAME
 expect DDNS_PASSWORD
 expect DDNS_HOSTNAME
+expect DDNS_FROM
+expect DDNS_TO
 
 DIG=$(dig -4 +short narate.taerat.net)
 MY_ADDR=$(wget -4 -q -O - https://domains.google.com/checkip)
@@ -42,4 +44,21 @@ fi
 URL="https://${DDNS_USERNAME}:${DDNS_PASSWORD}@domains.google.com/nic/update"
 DATA="hostname=$DDNS_HOSTNAME&myip=$MY_ADDR"
 
-log "ddns update: " $(wget -4 -q -O - --post-data="$DATA" $URL)
+UPDATE=$(wget -4 -q -O - --post-data="$DATA" $URL)
+log "ddns update: " $UPDATE
+
+sendmail -t <<EOM
+From: $DDNS_FROM
+To: $DDNS_TO
+Subject: IP address changed.
+
+IP address has been changed:
+
+previous: $DIG
+current: $MY_ADDR
+
+update output: $UPDATE
+
+Cheers,
+Z
+EOM

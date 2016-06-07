@@ -1,0 +1,7 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# min hour dom mon dow user command
+
+# quarterly update ddns
+0,15,30,45 * * * * cd /home/narate/crontab && ./ddns_update.sh

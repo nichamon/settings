@@ -10,9 +10,11 @@ fi
 right="\\[\\033[01;31m\\][$parent]"
 
 myprompt() {
+	echo -ne "\033]0;${USER}@${HOSTNAME}:$PWD\007"
 	PS1=$(printf "\n%*s\r%s\n\\[\\033[01;34m\\]\$\\[\\033[00m\\] " "$((COLUMNS + 15))" "$right" "$left")
 }
 
+export -f myprompt
 export PROMPT_COMMAND=myprompt
 export PYTHONSTARTUP=$HOME/.pyrc
 export DISPLAY=:0

@@ -109,7 +109,12 @@ function MyTabLabel(n)
   let fullname = bufname(buflist[winnr - 1])
   let tmp = split(fullname, "/")
   let lenn = len(tmp)
-  return tmp[lenn-1]
+  if lenn > 0
+    let s = (a:n).':'.tmp[lenn-1]
+  else
+    let s = (a:n)
+  endif
+  return s
 endfunction
 
 function MyTabLine()

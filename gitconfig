@@ -1,11 +1,19 @@
 [core]
-	editor = vim
+editor = vim
+pager = less -S -R
 
 [color]
-	ui = True
+ui = True
+
+[log]
+decorate = True
 
 [alias]
-	ln = log --graph --pretty=short --abbrev-commit --decorate
+ln = log --graph --pretty=format:'%C(auto)%h %d %s %C(ul white)-%an'
+ln2 = log --graph --pretty=format:'%C(auto)%H%d%n%ad (%ar)%n%s%n%C(ul white)-%an%n'
+
+[diff]
+tool = vimdiff
 
 [push]
-	default = simple
+default = simple

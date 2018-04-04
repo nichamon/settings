@@ -55,6 +55,9 @@ hi ColorColumn ctermbg=7 guibg=7
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
 
+" parentheses highlight
+highlight MatchParen cterm=bold ctermbg=none ctermfg=none
+
 set number
 
 function Ntt()

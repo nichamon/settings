@@ -98,7 +98,7 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 " youcompleteme options
 let g:ycm_auto_trigger = 0
 highlight YcmErrorSection ctermfg=White ctermbg=Red
-highlight YcmWarningSection ctermfg=White ctermbg=Blue
+highlight YcmWarningSection ctermfg=Black ctermbg=Blue
 
 function ModifyGdYcm()
 	map gd :YcmCompleter GoToDefinitionElseDeclaration<CR>

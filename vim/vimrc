@@ -51,7 +51,7 @@ endif
 " Line wrap settings
 set textwidth=80
 set colorcolumn=+1
-hi ColorColumn ctermbg=7 guibg=7
+hi ColorColumn ctermbg=7
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
 

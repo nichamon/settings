@@ -1,0 +1,26 @@
+addon: nerdtree
+description: NERDTree
+basedir: /usr/share/vim-nerdtree
+files:
+  - syntax/nerdtree.vim
+  - plugin/NERD_tree.vim
+  - autoload/nerdtree/ui_glue.vim
+  - autoload/nerdtree.vim
+  - nerdtree_plugin/exec_menuitem.vim
+  - nerdtree_plugin/fs_menu.vim
+  - registry/nerdtree.yaml
+  - lib/nerdtree/ui.vim
+  - lib/nerdtree/menu_item.vim
+  - lib/nerdtree/notifier.vim
+  - lib/nerdtree/event.vim
+  - lib/nerdtree/path.vim
+  - lib/nerdtree/key_map.vim
+  - lib/nerdtree/menu_controller.vim
+  - lib/nerdtree/tree_file_node.vim
+  - lib/nerdtree/tree_dir_node.vim
+  - lib/nerdtree/flag_set.vim
+  - lib/nerdtree/creator.vim
+  - lib/nerdtree/opener.vim
+  - lib/nerdtree/nerdtree.vim
+  - lib/nerdtree/bookmark.vim
+  - doc/NERD_tree.txt

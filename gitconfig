@@ -14,6 +14,7 @@ ln2 = log --graph --pretty=format:'%C(auto)%H%d%n%ad (%ar)%n%s%n%C(ul white)-%an
 
 [diff]
 tool = vimdiff
+wsErrorHighlight = all
 
 [push]
 default = simple

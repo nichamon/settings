@@ -42,16 +42,11 @@ autocmd! BufWritePre * :call EliminateTrailingSpaces()
 
 " Color scheme
 set t_Co=16
-if has("gui_running")
-	colo desert
-else
-	colo default
-endif
 
 " Line wrap settings
 set textwidth=80
 set colorcolumn=+1
-hi ColorColumn ctermbg=7
+highlight ColorColumn ctermbg=7
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
 
@@ -78,8 +73,8 @@ autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
-hi Search cterm=NONE ctermfg=0 ctermbg=11 guibg=Yellow guifg=Black
-hi Visual cterm=NONE ctermfg=0 ctermbg=6 guibg=Yellow guifg=Black
+highlight Search cterm=NONE ctermfg=0 ctermbg=11 guibg=Yellow guifg=Black
+highlight Visual cterm=NONE ctermfg=0 ctermbg=6 guibg=Yellow guifg=Black
 
 set comments+=fb:\[\ \]
 set comments+=fb:\[*\]

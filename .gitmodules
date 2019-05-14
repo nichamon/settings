@@ -22,3 +22,6 @@
 [submodule "vim/YouCompleteMe"]
 	path = vim/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/DrawIt"]
+	path = vim/DrawIt
+	url = https://github.com/vim-scripts/DrawIt

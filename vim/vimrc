@@ -95,6 +95,7 @@ let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long' ]
 let g:ycm_auto_trigger = 0
 highlight YcmErrorSection ctermfg=White ctermbg=Red
 highlight YcmWarningSection ctermfg=Black ctermbg=Blue
+let g:ycm_global_ycm_extra_conf = '/etc/vim/ycm_extra_conf.py'
 
 function ModifyGdYcm()
 	map gd :YcmCompleter GoToDefinitionElseDeclaration<CR>

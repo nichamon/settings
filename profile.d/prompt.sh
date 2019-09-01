@@ -1,6 +1,10 @@
 myprompt() {
 	if test -z "$parent"; then
-		parent=`ps -o cmd --no-headers $PPID | awk '{ print $1 }'`
+		if ((PPID)); then
+			parent=`ps -o cmd --no-headers $PPID | awk '{ print $1 }'`
+		else
+			parent="--"
+		fi
 	fi
 	if test -z "$left"; then
 		if (( $UID )); then

@@ -166,3 +166,10 @@ let g:netrw_liststyle = 3
 " disable modeline
 set modelines=0
 set nomodeline
+
+" time before becoming idle
+set updatetime=500
+
+" Tagbar
+let g:tagbar_sort = 0
+hi TagbarHighlight cterm=bold,reverse

@@ -76,6 +76,16 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 highlight Search cterm=NONE ctermfg=0 ctermbg=11 guibg=Yellow guifg=Black
 highlight Visual cterm=NONE ctermfg=0 ctermbg=6 guibg=Yellow guifg=Black
 
+" Easier vimdiff color for dark bg
+hi DiffAdd cterm=bold ctermbg=4
+hi DiffChange cterm=bold ctermbg=5
+hi DiffDelete cterm=bold ctermfg=0 ctermbg=6
+hi DiffText cterm=bold ctermbg=1
+
+" Fold highlight for dark background
+hi Folded cterm=bold ctermfg=0 ctermbg=7
+hi FoldColumn cterm=bold ctermfg=0 ctermbg=7
+
 set comments+=fb:\[\ \]
 set comments+=fb:\[*\]
 

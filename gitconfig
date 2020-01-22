@@ -12,6 +12,7 @@ decorate = True
 ln = log --graph --pretty=format:'%C(auto)%h %d %s %C(ul white)-%an'
 ln2 = log --graph --pretty=format:'%C(auto)%H%d%n%ad (%ar)%n%s%n%C(ul white)-%an%n'
 pick = cherry-pick
+shows = show --stat -p
 
 [diff]
 tool = vimdiff

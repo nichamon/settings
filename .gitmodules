@@ -28,3 +28,6 @@
 [submodule "vim/markdown2ctags"]
 	path = vim/markdown2ctags
 	url = https://github.com/jszakmeister/markdown2ctags
+[submodule "vim/cctree"]
+	path = vim/cctree
+	url = https://github.com/hari-rangarajan/CCTree.git

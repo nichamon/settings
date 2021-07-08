@@ -1,8 +1,8 @@
-" /etc/vimrc.local
+" /etc/vim/vimrc.local
 "
 
 
-" source /etc/vimrc.vundle
+source /etc/vim/vimrc.vundle
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -237,3 +237,6 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Allow ${PWD}/.vimrc (useful for per-project vim setting)
+set exrc

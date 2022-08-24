@@ -1,23 +1,25 @@
+[user]
+	email = nichamon@opengridcomputing.com
+	name = Nichamon Naksinehaboon
 [core]
-editor = vim
-pager = less -S -R
-
-[color]
-ui = True
-
-[log]
-decorate = True
-
-[alias]
-ln = log --graph --pretty=format:'%C(auto)%h %d %s %C(ul white)-%an'
-ln2 = log --graph --pretty=format:'%C(auto)%H%d%n%ad (%ar)%n%s%n%C(ul white)-%an%n'
-pick = cherry-pick
-shows = show --stat -p
-ffmerge = merge --ff-only
-
-[diff]
-tool = vimdiff
-wsErrorHighlight = all
-
+	editor = vim
 [push]
-default = simple
+	default = simple
+[alias]
+	st = status -uno
+	logn = log --decorate --oneline
+	logl = log --decorate --stat
+	logs = log --pretty=format:'%C(yellow)%h %Cred%d%  %Cblue%s%Creset' --stat
+	logss = log --pretty=oneline
+	hist = log -p
+	br = branch
+	chk = checkout
+	delme = branch -m del-me
+	del = branch -d
+	new = checkout -b
+	fwd = merge --ff-only
+	gr = log --graph --decorate
+	contain = branch --contains
+	rcontain = branch -r --contains
+	fetchall = !git fetch origin &&  git fetch mon-github && git fetch upstream && git fetch github && :
+	fetchmon = !git fetch origin && git fetch mon-github && :
